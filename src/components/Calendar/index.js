@@ -116,7 +116,7 @@ const Calendar = (props) => {
                         Array.from({ length: numDays }).map((_, index) => {
                             const num = index + 1;
                             const isCurrentDate = num === date.getDate() && today.getMonth() === date.getMonth() && today.getFullYear() === date.getFullYear()
-                            const checkRdvDate = new Date(date.getFullYear(), date.getMonth(), num);
+                            const checkRdvDate = new Date(date.getFullYear(), date.getMonth(), num + 1);
                             const isEventDate = rdvDates.includes(checkRdvDate.toISOString().slice(0, -14));
 
                             return(
