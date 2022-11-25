@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const CalendarContainer = styled.section`
-    border-top-width: 1px;
-    border-left-width: 1px;
     width: 100%;
     height: 90vh;
     background: linear-gradient(180deg, hsla(193, 95%, 68%, 1) 0%, hsla(277, 74%, 24%, 1) 100%);

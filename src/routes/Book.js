@@ -1,8 +1,9 @@
 import react from "react";
+import Form from "../components/Form";
 
 function Book() {
     return (
-        <h1>Book</h1>
+        <Form></Form>
     );
 }
 
