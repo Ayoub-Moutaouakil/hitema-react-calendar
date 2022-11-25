@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { CalendarCell, CalendarDateCell, CalendarWrapper, CalendarContainer, CalendarDateText, CalendarDaysText, CalendarNumsText, CalendarActiveCell } from "./CalendarElements"
+import { CalendarCell, CalendarWrapper, CalendarContainer, CalendarDateText, CalendarDaysText, CalendarNumsText, CalendarActiveCell } from "./CalendarElements"
 import { add, differenceInDays, endOfMonth, format, setDate, startOfMonth, sub } from "date-fns";
 import { HiChevronLeft, HiChevronRight, HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
 
 const weeks = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
 
 const Calendar = () => {
     const [date, setUsedDate] = useState(new Date);
@@ -64,7 +65,7 @@ const Calendar = () => {
             <CalendarContainer>
                 <CalendarWrapper>
                     <CalendarCell monthCell={true}>
-                        <CalendarDateText>{format(date, "LLLL yyyy")}</CalendarDateText>
+                        <CalendarDateText>{months[date.getMonth()] }{" "}{format(date, "yyyy")}</CalendarDateText>
                     </CalendarCell>
                     <CalendarCell onClick={() => prevYear()}>
                         <IconContext.Provider value={{ style: { cursor: 'pointer' } }}>
