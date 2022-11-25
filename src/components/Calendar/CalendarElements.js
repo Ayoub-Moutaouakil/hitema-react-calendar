@@ -31,7 +31,7 @@ export const CalendarCell = styled.div`
 export const CalendarActiveCell = styled.div`
     width: 18%;
     height: 50%;
-    background-color: purple;
+    ${props => props.isEvent ? "background-color: brown;" : "background-color: purple;"}
     border-radius: 100%;
 `
 

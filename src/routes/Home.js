@@ -1,9 +1,9 @@
 import react from "react";
 import Calendar from "../components/Calendar";
 
-function Home() {
+function Home(props) {
     return (
-        <Calendar></Calendar>
+        <Calendar rdv={props.rdv}></Calendar>
     );
 }
 

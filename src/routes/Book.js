@@ -1,9 +1,9 @@
 import react from "react";
 import Form from "../components/Form";
 
-function Book() {
+function Book(props) {
     return (
-        <Form></Form>
+        <Form setRdv={props.setRdv}></Form>
     );
 }
 

@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 const weeks = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
 
-const Calendar = () => {
+const Calendar = (props) => {
     const [date, setUsedDate] = useState(new Date);
     const today = new Date;
 
@@ -60,6 +60,12 @@ const Calendar = () => {
         setChangedState(true);
     }
 
+    const rdvDates = [];
+
+    props.rdv.rdv.map((item) => {
+        rdvDates.push(item.date);
+    })
+
     return (
         <>
             <CalendarContainer>
@@ -110,12 +116,14 @@ const Calendar = () => {
                         Array.from({ length: numDays }).map((_, index) => {
                             const num = index + 1;
                             const isCurrentDate = num === date.getDate() && today.getMonth() === date.getMonth() && today.getFullYear() === date.getFullYear()
+                            const checkRdvDate = new Date(date.getFullYear(), date.getMonth(), num);
+                            const isEventDate = rdvDates.includes(checkRdvDate.toISOString().slice(0, -14));
 
                             return(
                                 <CalendarCell key={index}>
-                                    {isCurrentDate ?
+                                    {isCurrentDate || isEventDate?
 
-                                    <CalendarActiveCell>
+                                    <CalendarActiveCell isEvent={isEventDate}>
                                         <CalendarNumsText isActive={isCurrentDate}>{num}</CalendarNumsText>
                                     </CalendarActiveCell>
 
