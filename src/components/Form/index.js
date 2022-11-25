@@ -8,7 +8,7 @@ const Form = () => {
         commentaire: "",
         date: "",
     });
-    
+
     return (
         <FormContainer>
             <FormWrapper>
@@ -20,7 +20,7 @@ const Form = () => {
                 <FormInput value={form.commentaire} />
 
                 <FormInputTitle>Date</FormInputTitle>
-                <FormInput type={"date"} onChange={(value) => console.log(value.value)}/>
+                <FormInput type={"date"} />
 
                 <FormInputButton type={"button"} value={"Réserver"}/>
             </FormWrapper>
